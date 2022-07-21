@@ -6,15 +6,35 @@ function createContainer() {
 }
 createContainer();
 
+//for loop created to create 16x16 boxes
 let numOfBoxes = 16 * 16;
 let number = 1;
 
 for (i = 0; i < numOfBoxes; i++) {
   const container = document.querySelector('.container');
   const newDiv = document.createElement('div');
+  newDiv.classList.add('box');
   newDiv.textContent = number++;
   container.appendChild(newDiv);
 }
+
+const box = document.querySelectorAll('.box');
+function highlight() {
+  box.forEach((box) => {
+    box.addEventListener(
+      'mouseover',
+      () => {
+        box.setAttribute('style', 'background-color: greenyellow;');
+        setTimeout(() => {
+          // const box = document.querySelectorAll('.box');
+          box.removeAttribute('style');
+        }, 500);
+      }
+      // false
+    );
+  });
+}
+highlight();
 
 // //use for loop to create (16x16) grid items
 // let gridSquares = 16 * 16;
