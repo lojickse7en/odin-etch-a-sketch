@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: repeat(16, minmax(5px, 1fr));
   max-width: 50rem;
+  /* max-height: 10rem; */
 }
 
 .container div {

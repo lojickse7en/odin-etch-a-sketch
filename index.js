@@ -6,8 +6,8 @@ function createContainer() {
 }
 createContainer();
 
-//for loop created to create 16x16 boxes
-let numOfBoxes = 16 * 16;
+//for loop created to create 16x16 boxes (in the future, try using forEach )
+let numOfBoxes = 16*16;
 let number = 1;
 
 for (i = 0; i < numOfBoxes; i++) {
@@ -18,20 +18,16 @@ for (i = 0; i < numOfBoxes; i++) {
   container.appendChild(newDiv);
 }
 
+//highlight individual boxes on hover and disappear after timeout to make a trail
 const box = document.querySelectorAll('.box');
 function highlight() {
   box.forEach((box) => {
-    box.addEventListener(
-      'mouseover',
-      () => {
-        box.setAttribute('style', 'background-color: greenyellow;');
-        setTimeout(() => {
-          // const box = document.querySelectorAll('.box');
-          box.removeAttribute('style');
-        }, 500);
-      }
-      // false
-    );
+    box.addEventListener('mouseover', () => {
+      box.setAttribute('style', 'background-color: greenyellow;');
+      setTimeout(() => {
+        box.removeAttribute('style');
+      }, 500);
+    });
   });
 }
 highlight();
