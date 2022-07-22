@@ -1,45 +1,59 @@
+//Variable Declarations
+const container = document.createElement('div');
+
 //create container
-function createContainer() {
-  const container = document.createElement('div');
-  container.classList.add('container');
-  document.body.appendChild(container);
+container.classList.add('container');
+document.body.appendChild(container);
+
+//for loop used to create initial 16x16 boxes (in the future, try using forEach )
+function createGrid(size) {
+  container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+  for (i = 0; i < size * size; i++) {
+    const gridItem = document.createElement('div');
+    gridItem.classList.add('box');
+    container.appendChild(gridItem);
+  }
 }
-createContainer();
+createGrid(16);
 
-//for loop created to create 16x16 boxes (in the future, try using forEach )
-let numOfBoxes = 16*16;
-let number = 1;
-
-for (i = 0; i < numOfBoxes; i++) {
-  const container = document.querySelector('.container');
-  const newDiv = document.createElement('div');
-  newDiv.classList.add('box');
-  newDiv.textContent = number++;
-  container.appendChild(newDiv);
+function changeColor() {
+  
 }
 
-//highlight individual boxes on hover and disappear after timeout to make a trail
+//highlight individual boxes on hover
 const box = document.querySelectorAll('.box');
 function highlight() {
   box.forEach((box) => {
-    box.addEventListener('mouseover', () => {
+    box.addEventListener('mouseover', function () {
       box.setAttribute('style', 'background-color: greenyellow;');
-      setTimeout(() => {
-        box.removeAttribute('style');
-      }, 500);
     });
   });
 }
 highlight();
 
-// //use for loop to create (16x16) grid items
-// let gridSquares = 16 * 16;
-// let number = 1;
+//when user clicks button, prompts question
+const button = document.querySelector('button');
 
-// let divArray = new Array();
-// for (i = 0; i < gridSquares; i++) {
-//   divArray[i] = document.createElement('div');
-//   divArray[i].textContent = number++;
-//   const parentElement = document.querySelector('.container');
-//   parentElement.appendChild(divArray[i]);
-// }
+button.addEventListener('click', function () {
+  gridSize = prompt(
+    'How may squares would you like on each side of your grid?'
+  );
+  if (gridSize < 100) {
+    let num = document.querySelector('.num');
+    num.textContent = `You have selected a ${gridSize} x ${gridSize} grid size`;
+    createGrid(gridSize);
+    const newBox = document.querySelectorAll('.box');
+    function newHighlight() {
+      newBox.forEach((newBox) => {
+        newBox.addEventListener('mouseover', function () {
+          newBox.setAttribute('style', 'background-color: greenyellow;');
+        });
+      });
+    }
+    newHighlight();
+  } else {
+    alert('Try again');
+  }
+});

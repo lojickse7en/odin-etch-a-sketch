@@ -8,4 +8,5 @@ The HTML document should be completely empty outside of the broilerplate code. O
 
 ## Skills Learned
 
-- JavaScript DOM manipulation
+- JavaScript DOM manipulation methods
+- CSS Grid
