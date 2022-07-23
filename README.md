@@ -10,3 +10,9 @@ The HTML document should be completely empty outside of the broilerplate code. O
 
 - JavaScript DOM manipulation methods
 - CSS Grid
+
+## Future Iterations
+
+- For the Etch-A-Sketch interface, have each pass add another 10% of black to it so that only after 10 passes is the square completely black
+- Add a clear button
+- Instead of the user entering the gird density, have them use a slider instead
