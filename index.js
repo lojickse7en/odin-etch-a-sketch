@@ -10,6 +10,7 @@ document.body.appendChild(container);
 //for loop used to create initial 16x16 boxes (in the future, try using forEach )
 function createGrid(size) {
   num.textContent = `Your current grid dimensions are ${size} x ${size}`;
+
   const boxes = document.querySelectorAll('.box');
   boxes.forEach((box) => (box.style.backgroundColor = 'darkgrey'));
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -29,19 +30,11 @@ function highlight() {
   boxes.forEach((box) => (box.style.backgroundColor = 'darkgrey'));
   boxes.forEach((box) => {
     box.addEventListener('mouseover', function () {
-      box.style.backgroundColor = 'black';
+      box.style.backgroundColor = 'rgb(66, 66, 66)';
     });
   });
 }
 highlight();
-
-//when user clicks button, prompts question
-button.addEventListener('click', function () {
-  gridSize = prompt(
-    'How may squares would you like on each side of your grid?'
-  );
-  newGrid();
-});
 
 //create a new grid based on user input
 function newGrid() {
@@ -54,3 +47,11 @@ function newGrid() {
     createGrid(16);
   }
 }
+
+//when user clicks button, prompts question
+button.addEventListener('click', function () {
+  gridSize = prompt(
+    'How may squares would you like on each side of your grid?'
+  );
+  newGrid();
+});

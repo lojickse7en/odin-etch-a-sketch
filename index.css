@@ -4,6 +4,11 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: aliceblue;
+}
+
+h1 {
+  margin: 0 auto 50px auto;
 }
 
 .container {
@@ -12,19 +17,16 @@
   grid-template-rows: repeat(64, 1fr);
   width: 500px;
   height: 500px;
-  border: solid 1px black;
+  border: solid 50px rgb(189, 46, 46);
   margin: 0 auto;
+  border-radius: 2rem;
 }
-
-/* .container div {
-  max-height: 100%;
-} */
 
 .btn-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 50px 0px;
+  margin-bottom: 50px;
 }
 
 .btn {
